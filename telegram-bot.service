@@ -4,9 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=user
+User=ubuntu
 WorkingDirectory=/home/ubuntu/telegramBot
-ExecStart==/home/ubuntu/telegramBot/venv/bin/python main.py
+ExecStart=/home/ubuntu/telegramBot/venv/bin/python main.py
 Restart=on-failure
 
 [Install]
