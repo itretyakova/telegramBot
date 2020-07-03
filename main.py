@@ -26,6 +26,8 @@ def send_prediction_on_photo(bot: Bot, update):
     # отдельном апдейте, поэтому в простейшем случае мы будем сохранять id первой картинки в память,
     # чтобы, когда уже придет вторая, мы могли загрузить в память уже сами картинки и обработать их.
     chat_id = update.message.chat_id
+    if chat_id not in first_image_file:
+        bot.send_message(chat_id, 'Крутяк! Исходная картинка есть, теперь отправляй картинку со стилем')
 
     # получаем информацию о картинке
     image_info = update.message.photo[-1]
@@ -36,7 +38,6 @@ def send_prediction_on_photo(bot: Bot, update):
         # первая картинка, которая к нам пришла станет content image, а вторая style image
         content_image_stream = BytesIO()
         first_image_file[chat_id].download(out=content_image_stream)
-        bot.send_message(chat_id, 'Крутяк! Исходная картинка есть, теперь отправляй картинку со стилем')
         del first_image_file[chat_id]
 
         style_image_stream = BytesIO()
