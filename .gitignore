@@ -1,0 +1,6 @@
+venv
+images/**
+bot.py
+token.txt
+__pycache__
+.idea

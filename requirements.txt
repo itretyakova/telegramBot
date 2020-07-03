@@ -1,0 +1,7 @@
+torch
+numpy
+matplotlib
+seaborn
+torchvision
+python-telegram-bot
+aiogram
