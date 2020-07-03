@@ -1,0 +1,13 @@
+[Unit]
+Description=Telegram Style Transfer Bot
+After=network.target
+
+[Service]
+Type=simple
+User=user
+WorkingDirectory=/home/ubuntu/telegramBot
+ExecStart==/home/ubuntu/telegramBot/venv/bin/python main.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

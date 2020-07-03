@@ -15,10 +15,8 @@ class Normalization(nn.Module):
         # .view the mean and std to make them [C x 1 x 1] so that they can
         # directly work with image Tensor of shape [B x C x H x W].
         # B is batch size. C is number of channels. H is height and W is width.
-        self.mean = torch.tensor(mean).view(-1, 1, 1)
-        self.std = torch.tensor(std).view(-1, 1, 1)
-        #self.mean = mean.clone().detach().view(-1, 1, 1)
-        #self.std = std.clone().detach().view(-1, 1, 1)
+        self.mean = mean.clone().detach().view(-1, 1, 1)
+        self.std = std.clone().detach().view(-1, 1, 1)
 
     def forward(self, img):
         # normalize img
@@ -208,7 +206,7 @@ class StyleTransferModel:
         # Для наглядности мы сначала переводим ее в тензор, а потом обратно
 
 
-        return self.tensor_to_image(content_img_stream)
+        return self.tensor_to_image(content_img_stream).resize((512,512))
 
     # В run_style_transfer используется много внешних функций, их можно добавить как функции класса
     # Если понятно, что функция является служебной и снаружи использоваться не должна, то перед именем функции
