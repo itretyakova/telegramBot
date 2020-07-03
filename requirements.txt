@@ -1,7 +1,7 @@
-torch
+torch==1.5.1+cpu
 numpy
 matplotlib
 seaborn
-torchvision
+torchvision==0.6.1+cpu
 python-telegram-bot
 aiogram
